@@ -18,7 +18,7 @@ export const telegramUrl = site.contact.telegram
 
 export const nav = [
   { href: "/#services", label: "Services" },
-  { href: "/#work", label: "Work" },
+  { href: "/#build", label: "What we build" },
   { href: "/#process", label: "Process" },
-  { href: "/#about", label: "About" },
+  { href: "/#faq", label: "FAQ" },
 ];

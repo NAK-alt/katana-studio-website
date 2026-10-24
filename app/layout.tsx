@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { RevealOnScroll } from "@/components/Motion";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <RevealOnScroll />
       </body>
     </html>
   );

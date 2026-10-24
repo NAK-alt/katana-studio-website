@@ -9,7 +9,7 @@ Next.js (App Router) + Tailwind CSS. Node.js 22 or newer.
 
 ## Editing content
 - `lib/site.ts`: name, tagline, contact links. Set `contact.telegram` to the Telegram username (without @) to turn on the Telegram buttons.
-- `app/page.tsx`: home page sections (hero, services, work, process, about).
-- `app/work/synergist-lubricants/page.tsx`: case study 01.
+- `app/page.tsx`: home page sections (hero, about, services, what we build, process, FAQ).
+- `components/Contact.tsx`, `components/Footer.tsx`: contact call to action and footer.
 - `public/brand`: logo marks from the Katana Studio brand pack. Do not redraw them.
 - Fonts: Space Grotesk (headings) and Manrope (body), both under the SIL Open Font License, in `app/fonts`.
