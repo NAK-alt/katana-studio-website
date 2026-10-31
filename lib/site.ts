@@ -4,7 +4,7 @@ export const site = {
   statement: "Good ideas deserve to be built well.",
   description:
     "Katana Studio is a digital and creative studio in Cambodia. We design and develop thoughtful digital solutions that look good, work well, and serve a purpose.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://katana-studio.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://katana-studio-website.vercel.app",
   contact: {
     // Telegram username without the @. Leave empty until the handle is confirmed.
     telegram: "",
