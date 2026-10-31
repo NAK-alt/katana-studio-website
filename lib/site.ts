@@ -7,7 +7,7 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://katana-studio-website.vercel.app",
   contact: {
     // Telegram username without the @. Leave empty until the handle is confirmed.
-    telegram: "",
+    telegram: "Nak_Studio",
     facebook: "https://www.facebook.com/kstudio101/",
   },
 };
