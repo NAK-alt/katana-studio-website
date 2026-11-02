@@ -9,8 +9,16 @@ import {
   IconRocket,
   IconSystem,
 } from "@/components/Icons";
-import { ScrollWords, StudioClock } from "@/components/Motion";
-import { site } from "@/lib/site";
+import {
+  FloatingContact,
+  Magnetic,
+  ScrollLine,
+  ScrollWords,
+  Spotlight,
+  StudioClock,
+  Tilt,
+} from "@/components/Motion";
+import { site, telegramUrl } from "@/lib/site";
 
 const services = [
   {
@@ -114,7 +122,8 @@ export default function Home() {
   return (
     <>
       {/* ───────────── Hero ───────────── */}
-      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-charcoal pt-16 text-warm">
+      <section className="grain relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-charcoal pt-16 text-warm">
+        <Spotlight />
         <div className="dot-grid absolute inset-0 -z-10 text-white/[0.06] [mask-image:radial-gradient(ellipse_at_70%_40%,black,transparent_75%)]" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -125,9 +134,11 @@ export default function Home() {
           style={delay(400)}
         />
         <div
-          className="cut pointer-events-none absolute left-[-5%] top-[58%] -z-10 h-px w-[110%] bg-gradient-to-r from-transparent via-teal to-transparent"
+          className="cut pointer-events-none absolute left-[-5%] top-[58%] -z-10 h-px w-[110%] overflow-hidden bg-gradient-to-r from-transparent via-teal to-transparent shadow-[0_0_12px_rgb(20_184_166/0.6)]"
           aria-hidden="true"
-        />
+        >
+          <span className="gleam" />
+        </div>
 
         <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-between px-5 pb-10 pt-12 sm:px-8 md:pt-20">
           <div
@@ -154,7 +165,7 @@ export default function Home() {
             </span>
             <span>
               <span style={delay(340)}>
-                built <em className="not-italic text-teal">well.</em>
+                built <em className="sheen not-italic">well.</em>
               </span>
             </span>
           </h1>
@@ -169,9 +180,11 @@ export default function Home() {
               purpose.
             </p>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <Link href="/#contact" className="btn btn-teal">
-                Start a project <IconArrow />
-              </Link>
+              <Magnetic>
+                <Link href="/#contact" className="btn btn-teal">
+                  Start a project <IconArrow />
+                </Link>
+              </Magnetic>
               <Link href="/#services" className="btn btn-ghost text-warm">
                 Explore services
               </Link>
@@ -324,7 +337,8 @@ export default function Home() {
       </section>
 
       {/* ───────────── Process ───────────── */}
-      <section id="process" className="relative overflow-hidden bg-charcoal text-warm">
+      <section id="process" className="grain relative isolate overflow-hidden bg-charcoal text-warm">
+        <Spotlight />
         <div className="dot-grid absolute inset-0 text-white/[0.04]" />
         <div className="relative mx-auto max-w-7xl px-5 py-28 sm:px-8 md:py-36">
           <div className="grid gap-6 md:grid-cols-2 md:items-end">
@@ -349,9 +363,10 @@ export default function Home() {
 
           <ol className="relative mt-20 grid gap-12 md:grid-cols-4 md:gap-8">
             <div
-              className="absolute left-0 right-0 top-[1.4rem] hidden h-px bg-gradient-to-r from-teal via-white/20 to-white/5 md:block"
+              className="absolute left-0 right-0 top-[1.4rem] hidden h-px bg-white/10 md:block"
               aria-hidden="true"
             />
+            <ScrollLine className="absolute left-0 right-0 top-[1.4rem] hidden h-px bg-gradient-to-r from-teal to-teal/40 shadow-[0_0_10px_rgb(20_184_166/0.7)] md:block" />
             {steps.map((step, i) => (
               <li key={step.title} className="relative" data-reveal style={delay(i * 140)}>
                 <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-teal bg-charcoal font-heading text-sm text-teal">
@@ -374,9 +389,13 @@ export default function Home() {
                 a clear quote before anything starts.
               </p>
             </div>
-            <Link href="/#contact" className="btn btn-teal shrink-0 self-start md:self-auto">
-              Ask for a quote <IconArrow />
-            </Link>
+            <span className="shrink-0 self-start md:self-auto">
+              <Magnetic>
+                <Link href="/#contact" className="btn btn-teal">
+                  Ask for a quote <IconArrow />
+                </Link>
+              </Magnetic>
+            </span>
           </div>
         </div>
       </section>
@@ -422,6 +441,7 @@ export default function Home() {
       </section>
 
       <Contact />
+      {telegramUrl && <FloatingContact href={telegramUrl} label="Message Katana Studio on Telegram" />}
     </>
   );
 }
@@ -442,29 +462,31 @@ function BuildCard({
   d?: number;
 }) {
   return (
-    <article
-      className={`mock-card group flex flex-col overflow-hidden rounded-3xl border ${
-        dark ? "border-charcoal bg-charcoal text-warm" : "border-line bg-white"
-      }`}
-      data-reveal
-      style={delay(d)}
-    >
-      <div
-        className={`relative flex h-72 items-end justify-center overflow-hidden px-8 pt-10 ${
-          dark ? "bg-ink" : "bg-[#efece7]"
-        }`}
-      >
-        <div
-          className={`dot-grid absolute inset-0 ${dark ? "text-white/[0.06]" : "text-charcoal/[0.07]"}`}
-        />
-        <div className="mock relative w-full">{mock}</div>
-      </div>
-      <div className="flex flex-1 flex-col p-8">
-        <span className={`font-heading text-sm ${dark ? "text-teal" : "text-teal-dark"}`}>{n}</span>
-        <h3 className="mt-3 text-2xl font-medium">{title}</h3>
-        <p className={`mt-3 leading-relaxed ${dark ? "text-line/70" : "text-slate"}`}>{text}</p>
-      </div>
-    </article>
+    <div className="h-full" data-reveal style={delay(d)}>
+      <Tilt className="h-full">
+        <article
+          className={`mock-card group relative flex h-full flex-col overflow-hidden rounded-3xl border ${
+            dark ? "border-charcoal bg-charcoal text-warm" : "border-line bg-white"
+          }`}
+        >
+          <div
+            className={`relative flex h-72 items-end justify-center overflow-hidden px-8 pt-10 ${
+              dark ? "bg-ink" : "bg-[#efece7]"
+            }`}
+          >
+            <div
+              className={`dot-grid absolute inset-0 ${dark ? "text-white/[0.06]" : "text-charcoal/[0.07]"}`}
+            />
+            <div className="mock relative w-full">{mock}</div>
+          </div>
+          <div className="flex flex-1 flex-col p-8">
+            <span className={`font-heading text-sm ${dark ? "text-teal" : "text-teal-dark"}`}>{n}</span>
+            <h3 className="mt-3 text-2xl font-medium">{title}</h3>
+            <p className={`mt-3 leading-relaxed ${dark ? "text-line/70" : "text-slate"}`}>{text}</p>
+          </div>
+        </article>
+      </Tilt>
+    </div>
   );
 }
 
