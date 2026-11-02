@@ -1,9 +1,10 @@
 import { site, telegramUrl } from "@/lib/site";
 import { IconArrow, IconFacebook, IconTelegram } from "./Icons";
+import { Magnetic } from "./Motion";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-teal text-charcoal">
+    <section id="contact" className="grain relative isolate overflow-hidden bg-teal text-charcoal">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/brand/mark-dark.svg"
@@ -36,10 +37,12 @@ export function Contact() {
           </p>
           <div className="flex flex-wrap gap-3">
             {telegramUrl && (
-              <a href={telegramUrl} className="btn btn-dark">
-                <IconTelegram className="h-5 w-5" />
-                Message on Telegram
-              </a>
+              <Magnetic>
+                <a href={telegramUrl} className="btn btn-dark">
+                  <IconTelegram className="h-5 w-5" />
+                  Message on Telegram
+                </a>
+              </Magnetic>
             )}
             <a
               href={site.contact.facebook}

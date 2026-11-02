@@ -63,7 +63,15 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          <p>Designed and built by {site.name}.</p>
+          <p className="flex items-center gap-6">
+            Designed and built by {site.name}.
+            <a href="#main" className="group inline-flex items-center gap-2 text-line/60 transition-colors hover:text-teal">
+              Back to top
+              <span className="inline-block transition-transform duration-300 group-hover:-translate-y-1" aria-hidden="true">
+                ↑
+              </span>
+            </a>
+          </p>
         </div>
       </div>
     </footer>
