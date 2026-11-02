@@ -91,7 +91,7 @@ export function Header() {
         hidden && !open ? "-translate-y-full" : ""
       } ${
         scrolled || open
-          ? "border-b border-white/10 bg-charcoal/80 backdrop-blur-md"
+          ? "border-b border-white/10 bg-charcoal/90 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
