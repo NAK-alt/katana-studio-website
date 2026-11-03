@@ -21,4 +21,5 @@ export const nav = [
   { href: "/#build", label: "What we build" },
   { href: "/#process", label: "Process" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/about", label: "About Nak" },
 ];
